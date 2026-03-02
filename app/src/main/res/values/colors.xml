@@ -7,4 +7,10 @@
     <color name="light_blue_200">#FF81D4FA</color>
     <color name="light_blue_600">#FF039BE5</color>
     <color name="light_blue_900">#FF01579B</color>
+    <color name="main_color">#C1E8FF</color>
+    <color name="frame_color">#76D1FF</color>
+    <color name="text_color">#1D1736</color>
+    <color name="element_color1">#787296</color>
+    <color name="element_color2">#007FAC</color>
+
 </resources>

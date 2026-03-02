@@ -26,6 +26,8 @@ public class date_view_element extends AppCompatActivity {
     private LocationManager locationManager;
     Location location;
     private LocationListener locationListener;
+    public String note;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -1,12 +1,14 @@
 package com.govno228.pon;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.GridLayout;
 import android.widget.GridView;
 import android.widget.ListView;
@@ -14,6 +16,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -152,11 +155,71 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+        calendar.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+
+                MonthData data = CalendarManager.getMonthData(CalendarStaticData.date.getTime());
+                int skipDays = data.beginWeekInMonth;
+                int countDays = data.countDays;
+
+                if (position + 1 >= skipDays && position + 1 <= countDays + skipDays) {
+
+                    Calendar cActual = Calendar.getInstance();
+                    cActual.setTimeInMillis(CalendarStaticData.date.getTime());
+
+                    Calendar selectedCal = Calendar.getInstance();
+                    selectedCal.set(Calendar.YEAR, cActual.get(Calendar.YEAR));
+                    selectedCal.set(Calendar.MONTH, cActual.get(Calendar.MONTH));
+                    selectedCal.set(Calendar.DAY_OF_MONTH, position - skipDays + 2);
+
+                    showNoteDialog(selectedCal.getTimeInMillis());
+                }
+
+                return true;
+            }
+        });
         setAdapter();
         arrayAdapter.notifyDataSetChanged();
         AutoFormatCalendarTitle();
         initToggleButtons();
         setTodayInSelection();
+    }
+
+    private void showNoteDialog(long timeInMillis) {
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Add Note");
+
+        final EditText input = new EditText(this);
+        builder.setView(input);
+
+        // 读取已有备注
+        SharedPreferences prefs = getSharedPreferences("calendar_notes", MODE_PRIVATE);
+        String key = generateKey(timeInMillis);
+        String existingNote = prefs.getString(key, "");
+        input.setText(existingNote);
+
+        builder.setPositiveButton("Save", (dialog, which) -> {
+            String note = input.getText().toString();
+            prefs.edit().putString(key, note).apply();
+            Toast.makeText(this, "Saved", Toast.LENGTH_SHORT).show();
+        });
+
+        builder.setNegativeButton("Cancel", null);
+
+        builder.show();
+    }
+
+    private String generateKey(long timeInMillis) {
+        Calendar c = Calendar.getInstance();
+        c.setTimeInMillis(timeInMillis);
+
+        int year = c.get(Calendar.YEAR);
+        int month = c.get(Calendar.MONTH) + 1;
+        int day = c.get(Calendar.DAY_OF_MONTH);
+
+        return year + "-" + month + "-" + day;
     }
 
     public void resetSelection() {

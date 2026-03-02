@@ -16,7 +16,7 @@
         android:orientation="vertical">
 
         <TextView
-            android:textColor="@color/material_dynamic_tertiary10"
+            android:textColor="@color/text_color"
             android:id="@+id/title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -25,11 +25,18 @@
             android:textSize="20sp" />
 
         <TextView
-            android:textColor="@color/material_dynamic_tertiary10"
+            android:textColor="@color/text_color"
             android:id="@+id/subtitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="test" />
+
+        <TextView
+            android:textColor="@color/text_color"
+            android:id="@+id/noteText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Note:" />
     </LinearLayout>
 
     <RelativeLayout

@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/material_dynamic_primary90"
+    android:background="@color/main_color"
     tools:context=".MainActivity">
 
     <RelativeLayout
@@ -15,10 +15,10 @@
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/material_dynamic_primary80" />
+            android:background="@color/frame_color" />
 
         <TextView
-            android:textColor="@color/material_dynamic_tertiary10"
+            android:textColor="@color/text_color"
             android:id="@+id/appTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -44,7 +44,7 @@
                 android:layout_marginTop="10dp">
 
                 <TextView
-                    android:textColor="@color/material_dynamic_tertiary10"
+                    android:textColor="@color/text_color"
                     android:id="@+id/calendarTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -108,7 +108,7 @@
                     app:selectionRequired="true"
                     app:singleSelection="true"
 
-                    android:textColor="@color/material_dynamic_tertiary10">
+                    android:textColor="@color/text_color">
                     <com.google.android.material.button.MaterialButton
 
                         style="?attr/materialButtonOutlinedStyle"

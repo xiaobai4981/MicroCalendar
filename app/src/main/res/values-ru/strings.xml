@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Простой органайзер</string>
+    <string name="app_name">Микрокалендарь</string>
     <string name="MonthAndYearStringFormat">LLLL(yyyy)</string>
     <string name="SingleSelection">Одиночный выбор</string>
     <string name="MultipleSelection">Множественный выбор</string>

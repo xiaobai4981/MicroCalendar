@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Simple organizer</string>
+    <string name="app_name">Micro Calendar</string>
     <string name="MonthAndYearStringFormat">MMMM(yyyy)</string>
     <string name="SingleSelection">Single selection</string>
     <string name="MultipleSelection">Multiple selection</string>
