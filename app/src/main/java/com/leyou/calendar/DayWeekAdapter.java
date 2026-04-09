@@ -1,4 +1,4 @@
-package com.govno228.pon;
+package com.leyou.calendar;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -11,10 +11,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
-import org.w3c.dom.Text;
-
 import java.util.ArrayList;
-import java.util.Date;
 
 public class DayWeekAdapter extends ArrayAdapter {
     ArrayList<DayWeekElement> elements;

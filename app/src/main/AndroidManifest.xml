@@ -8,6 +8,7 @@
 
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="com.google.android.gms.permission.AD_ID" />
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -32,12 +33,18 @@
                 android:resource="@xml/calendar_widget_info" />
         </receiver>
 
+        <!--TODO 将sampleID换为正式ID -->
+        <!-- Sample AdMob app ID: ca-app-pub-3940256099942544~3347511713 -->
+        <!-- Real AdMob app ID: ca-app-pub-3660135133922339~4749879971 -->
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-3660135133922339~4749879971"/>
         <activity
             android:name=".date_view_element"
             android:exported="false" />
-        <activity
-            android:name=".CalendarElement"
-            android:exported="false" />
+<!--        <activity-->
+<!--            android:name=".CalendarElement"-->
+<!--            android:exported="false" />-->
         <activity
             android:name=".MainActivity"
             android:exported="true">

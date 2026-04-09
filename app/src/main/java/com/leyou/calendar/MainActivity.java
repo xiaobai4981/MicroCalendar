@@ -1,15 +1,13 @@
-package com.govno228.pon;
+package com.leyou.calendar;
 
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.GridLayout;
 import android.widget.GridView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -23,11 +21,11 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.google.android.material.button.MaterialButtonToggleGroup;
+import com.leyou.calendar.Ads.AdManager;
 
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.TooManyListenersException;
 
 public class MainActivity extends AppCompatActivity {
     ArrayList<CalendarElement> calendarElements;
@@ -45,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
+        AdManager.getInstance().init(this);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
@@ -202,8 +201,11 @@ public class MainActivity extends AppCompatActivity {
 
         builder.setPositiveButton("Save", (dialog, which) -> {
             String note = input.getText().toString();
-            prefs.edit().putString(key, note).apply();
-            Toast.makeText(this, "Saved", Toast.LENGTH_SHORT).show();
+
+            AdManager.getInstance().maybeShowAd(this, () -> {
+                prefs.edit().putString(key, note).apply();
+                Toast.makeText(this, "Saved", Toast.LENGTH_SHORT).show();
+            });
         });
 
         builder.setNegativeButton("Cancel", null);

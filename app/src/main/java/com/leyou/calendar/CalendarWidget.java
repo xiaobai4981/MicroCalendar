@@ -1,6 +1,4 @@
-package com.govno228.pon;
-
-import static com.govno228.pon.CalendarManager.getCalendar;
+package com.leyou.calendar;
 
 import android.annotation.SuppressLint;
 import android.appwidget.AppWidgetManager;
@@ -10,13 +8,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.icu.text.SimpleDateFormat;
 import android.util.Log;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.GridView;
 import android.widget.RemoteViews;
 
-import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Date;
 
 /**

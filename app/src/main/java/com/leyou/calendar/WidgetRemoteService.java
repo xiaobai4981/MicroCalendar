@@ -1,6 +1,6 @@
-package com.govno228.pon;
+package com.leyou.calendar;
 
-import static com.govno228.pon.CalendarManager.getCalendar;
+import static com.leyou.calendar.CalendarManager.getCalendar;
 
 import android.content.Context;
 import android.content.Intent;
@@ -9,10 +9,8 @@ import android.view.View;
 import android.widget.RemoteViews;
 import android.widget.RemoteViewsService;
 
-import com.govno228.pon.CalendarElement;
-import com.govno228.pon.R;
+import com.leyou.calendar.R;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class WidgetRemoteService extends RemoteViewsService {

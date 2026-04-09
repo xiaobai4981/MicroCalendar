@@ -1,4 +1,4 @@
-package com.govno228.pon;
+package com.leyou.calendar;
 
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -14,7 +14,6 @@ import androidx.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.List;
 
 public class DayViewAdapter extends ArrayAdapter {
     ArrayList<Date> dates;
